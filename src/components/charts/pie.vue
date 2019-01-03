@@ -3,10 +3,8 @@
 </template>
 
 <script>
-import echarts from 'echarts'
 import tdTheme from './theme.json'
 import { on, off } from '@/libs/tools'
-echarts.registerTheme('tdTheme', tdTheme)
 export default {
   name: 'ChartPie',
   props: {
@@ -14,17 +12,15 @@ export default {
     text: String,
     subtext: String
   },
-  data () {
+  data() {
     return {
       dom: null
     }
   },
   methods: {
-    resize () {
-      this.dom.resize()
-    }
+    resize() {}
   },
-  mounted () {
+  mounted() {
     this.$nextTick(() => {
       let legend = this.value.map(_ => _.name)
       let option = {
@@ -58,12 +54,10 @@ export default {
           }
         ]
       }
-      this.dom = echarts.init(this.$refs.dom, 'tdTheme')
-      this.dom.setOption(option)
       on(window, 'resize', this.resize)
     })
   },
-  beforeDestroy () {
+  beforeDestroy() {
     off(window, 'resize', this.resize)
   }
 }

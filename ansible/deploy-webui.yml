@@ -1,0 +1,10 @@
+- hosts: xdata_api
+  vars:
+    workdir: /opt/squirrel/www
+
+  tasks:
+    - name: ensure squirrel webui directory
+      file: path={{ workdir }} state=directory mode=755
+
+    - name: sync dist file
+      synchronize: src=../dist/ dest={{ workdir }}/

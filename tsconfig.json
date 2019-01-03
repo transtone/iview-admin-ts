@@ -1,0 +1,23 @@
+{
+  "compilerOptions": {
+    "lib": ["dom", "es5", "es6", "es7", "es2015.promise"],
+    "target": "es5",
+    "module": "esnext",
+    // "strict": true,
+    "allowJs": true, // 允许编译javascript文件
+    "jsx": "preserve",
+    "moduleResolution": "node",
+    "experimentalDecorators": true,
+    "emitDecoratorMetadata": true,
+    "allowSyntheticDefaultImports": true,
+    "strictNullChecks": true,
+    "sourceMap": true,
+    "baseUrl": ".",
+    "types": ["node"],
+    "paths": {
+      "@/*": ["src/*"]
+    }
+  },
+  "include": ["src/**/*.ts", "src/**/*.vue", "tests/**/*.ts"],
+  "exclude": ["node_modules", "target"]
+}

@@ -38,11 +38,9 @@ import { mapMutations } from 'vuex'
 export default {
   name: 'tools_methods_page',
   methods: {
-    ...mapMutations([
-      'closeTag'
-    ]),
-    createTagParams () {
-      const id = parseInt(Math.random() * 100000)
+    ...mapMutations(['closeTag']),
+    createTagParams() {
+      const id = parseInt(Math.random() * 100000, 0)
       const route = {
         name: 'params',
         params: {
@@ -54,8 +52,8 @@ export default {
       }
       this.$router.push(route)
     },
-    createTagQuery () {
-      const id = parseInt(Math.random() * 100000)
+    createTagQuery() {
+      const id = parseInt(Math.random() * 100000, 0)
       const route = {
         name: 'query',
         query: {
@@ -67,7 +65,7 @@ export default {
       }
       this.$router.push(route)
     },
-    handleCloseTag () {
+    handleCloseTag() {
       this.closeTag({
         name: 'tools_methods_page'
       })
@@ -77,5 +75,4 @@ export default {
 </script>
 
 <style>
-
 </style>

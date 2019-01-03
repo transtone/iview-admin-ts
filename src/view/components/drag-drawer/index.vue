@@ -54,7 +54,7 @@
 </template>
 
 <script>
-import DragDrawer from '_c/drag-drawer'
+import DragDrawer from '@/components/drag-drawer'
 export default {
   name: 'drag_drawer_page',
   components: {

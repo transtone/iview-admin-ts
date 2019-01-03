@@ -20,7 +20,7 @@
 </template>
 
 <script>
-import PasteEditor from '_c/paste-editor'
+import PasteEditor from '@/components/paste-editor'
 import { getTableDataFromArray } from '@/libs/util'
 export default {
   name: 'update_paste_page',

@@ -2,15 +2,18 @@
   <div>
     <Card>
       <div class="drag-box-card">
-
         <!-- 切记设置list1和list2属性时，一定要添加.sync修饰符 -->
-        <drag-list :list1.sync="list1" :list2.sync="list2" :dropConClass="dropConClass" @on-change="handleChange">
+        <drag-list
+          :list1.sync="list1"
+          :list2.sync="list2"
+          :dropConClass="dropConClass"
+          @on-change="handleChange"
+        >
           <h3 slot="left-title">待办事项</h3>
           <Card class="drag-item" slot="left" slot-scope="left">{{ left.itemLeft.name }}</Card>
           <h3 slot="right-title">完成事项</h3>
           <Card class="drag-item" slot="right" slot-scope="right">{{ right.itemRight.name }}</Card>
         </drag-list>
-
       </div>
       <div class="handle-log-box">
         <h3>操作记录</h3>
@@ -28,14 +31,14 @@
   </div>
 </template>
 <script>
-import DragList from '_c/drag-list'
+import DragList from '@/components/drag-list'
 import { getDragList } from '@/api/data'
 export default {
   name: 'drag_list_page',
   components: {
-    DragList
+    // DragList
   },
-  data () {
+  data() {
     return {
       list1: [],
       list2: [],
@@ -47,11 +50,11 @@ export default {
     }
   },
   methods: {
-    handleChange ({ src, target, oldIndex, newIndex }) {
+    handleChange({ src, target, oldIndex, newIndex }) {
       this.handleList.push(`${src} => ${target}, ${oldIndex} => ${newIndex}`)
     }
   },
-  mounted () {
+  mounted() {
     getDragList().then(res => {
       this.list1 = res.data
       this.list2 = [res.data[0]]
@@ -60,49 +63,49 @@ export default {
 }
 </script>
 <style lang="less">
-.drag-box-card{
+.drag-box-card {
   display: inline-block;
   width: 600px;
   height: 560px;
-  .drag-item{
+  .drag-item {
     margin: 10px;
   }
-  h3{
+  h3 {
     padding: 10px 15px;
   }
-  .drop-box{
+  .drop-box {
     border: 1px solid #eeeeee;
     height: 455px;
     border-radius: 5px;
   }
-  .left-drop-box{
+  .left-drop-box {
     margin-right: 10px;
   }
-  .right-drop-box{
+  .right-drop-box {
     //
   }
 }
-.handle-log-box{
+.handle-log-box {
   display: inline-block;
   margin-left: 20px;
   border: 1px solid #eeeeee;
   vertical-align: top;
   width: 200px;
   height: 500px;
-  h3{
+  h3 {
     padding: 10px 14px;
   }
-  .handle-inner-box{
-    height: ~"calc(100% - 44px)";
+  .handle-inner-box {
+    height: ~'calc(100% - 44px)';
     overflow: auto;
-    p{
+    p {
       padding: 14px 0;
       margin: 0 14px;
       border-bottom: 1px dashed #eeeeee;
     }
   }
 }
-.res-show-box{
+.res-show-box {
   display: inline-block;
   margin-left: 20px;
   border: 1px solid #eeeeee;

@@ -6,7 +6,7 @@
 </template>
 
 <script>
-import Editor from '_c/editor'
+import Editor from '@/components/editor'
 export default {
   name: 'editor_page',
   components: {

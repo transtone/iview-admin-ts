@@ -7,11 +7,11 @@
 </template>
 
 <script>
-import dayjs from 'dayjs'
+import { format } from 'date-fns'
 import { mapMutations } from 'vuex'
 export default {
   name: 'error_logger_page',
-  data () {
+  data() {
     return {
       columns: [
         {
@@ -26,7 +26,10 @@ export default {
           render: (h, { row }) => {
             return (
               <div>
-                <icon size={16} type={row.type === 'ajax' ? 'md-link' : 'md-code-working'}></icon>
+                <icon
+                  size={16}
+                  type={row.type === 'ajax' ? 'md-link' : 'md-code-working'}
+                />
               </div>
             )
           }
@@ -35,9 +38,7 @@ export default {
           key: 'code',
           title: '编码',
           render: (h, { row }) => {
-            return (
-              <span>{ row.code === 0 ? '-' : row.code }</span>
-            )
+            return <span>{row.code === 0 ? '-' : row.code}</span>
           }
         },
         {
@@ -52,9 +53,7 @@ export default {
           key: 'time',
           title: '时间',
           render: (h, { row }) => {
-            return (
-              <span>{ dayjs(row.time).format('YYYY-MM-DD HH:mm:ss') }</span>
-            )
+            return <span>{format(row.time, 'YYYY-MM-DD HH:mm:ss')}</span>
           },
           sortable: true,
           sortType: 'desc'
@@ -63,29 +62,26 @@ export default {
     }
   },
   computed: {
-    errorList () {
+    errorList() {
       return this.$store.state.app.errorList
     }
   },
   methods: {
-    ...mapMutations([
-      'setHasReadErrorLoggerStatus'
-    ]),
-    exportData () {
+    ...mapMutations(['setHasReadErrorLoggerStatus']),
+    exportData() {
       this.$refs.table.exportCsv({
         filename: '错误日志.csv'
       })
     }
   },
-  activated () {
+  activated() {
     this.setHasReadErrorLoggerStatus()
   },
-  mounted () {
+  mounted() {
     this.setHasReadErrorLoggerStatus()
   }
 }
 </script>
 
 <style>
-
 </style>

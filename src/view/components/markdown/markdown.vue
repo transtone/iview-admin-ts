@@ -5,7 +5,7 @@
 </template>
 
 <script>
-import MarkdownEditor from '_c/markdown'
+import MarkdownEditor from '@/components/markdown'
 export default {
   name: 'markdown_page',
   components: {

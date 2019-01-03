@@ -10,7 +10,7 @@
 </template>
 <script>
 import { showTitle } from '@/libs/util'
-import CommonIcon from '_c/common-icon'
+import CommonIcon from '@/components/common-icon'
 import './custom-bread-crumb.less'
 export default {
   name: 'customBreadCrumb',
