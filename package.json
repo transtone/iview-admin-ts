@@ -55,6 +55,7 @@
     "stylus": "^0.54.5",
     "stylus-loader": "^3.0.2",
     "tslint": "^5.12.0",
+    "tslint-config-prettier": "^1.17.0",
     "tslint-config-standard": "^8.0.1",
     "typescript": "^3.2.2",
     "vue-template-compiler": "^2.5.21"
@@ -64,8 +65,5 @@
     "iOS >= 7",
     "Android >= 4.1",
     "not ie <= 8"
-  ],
-  "gitHooks": {
-    "pre-commit": "lint-staged"
-  }
+  ]
 }

@@ -7677,6 +7677,11 @@ tslib@^1.8.0, tslib@^1.8.1, tslib@^1.9.0:
   resolved "http://registry.npm.taobao.org/tslib/download/tslib-1.9.3.tgz#d7e4dd79245d85428c4d7e4822a79917954ca286"
   integrity sha1-1+TdeSRdhUKMTX5IIqeZF5VMooY=
 
+tslint-config-prettier@^1.17.0:
+  version "1.17.0"
+  resolved "http://registry.npm.taobao.org/tslint-config-prettier/download/tslint-config-prettier-1.17.0.tgz#946ed6117f98f3659a65848279156d87628c33dc"
+  integrity sha1-lG7WEX+Y82WaZYSCeRVth2KMM9w=
+
 tslint-config-standard@^8.0.1:
   version "8.0.1"
   resolved "http://registry.npm.taobao.org/tslint-config-standard/download/tslint-config-standard-8.0.1.tgz#e4dd3128e84b0e34b51990b68715a641f2b417e4"

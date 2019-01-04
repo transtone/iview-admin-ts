@@ -1,6 +1,6 @@
 {
   "defaultSeverity": "warning",
-  "extends": "tslint-config-standard",
+  "extends": ["tslint:recommended", "tslint-config-prettier"],
   "linterOptions": {
     "exclude": ["node_modules/**"]
   },
@@ -14,11 +14,13 @@
     "import-spacing": false,
     "no-floating-promises": false,
     "no-empty": false,
+    "no-var-requires": false,
+    "curly": false,
     "trailing-comma": false,
     "semicolon": false,
     "interface-name": false,
     "ordered-imports": false,
-    "object-literal-sort-keys": false,
+    "object-literal-sort-keys": [false],
     "no-unused-variable": false,
     "await-promise": false,
     "deprecation": false,
@@ -28,6 +30,8 @@
     "no-consecutive-blank-lines": false
   },
   "jsRules": {
-    "no-empty": false
+    "object-literal-sort-keys": false,
+    "curly": false,
+    "no-unused-expression": false
   }
 }
