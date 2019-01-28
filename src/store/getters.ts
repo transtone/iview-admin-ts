@@ -1,14 +1,6 @@
-import { mosaicMobile } from '@/utils'
 import { isEmpty, findIndex, propEq, concat } from 'ramda'
 
 export const token = state => state.login.token
-export const user = state => {
-  if (isEmpty(state.login.user)) {
-    return ''
-  } else {
-    return mosaicMobile(state.login.user.Mobile.String)
-  }
-}
 
 export const checkToken = state => {
   const token = state.login.token
