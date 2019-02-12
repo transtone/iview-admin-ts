@@ -1,9 +1,9 @@
-- hosts: xdata_api
+- hosts: iview-ts
   vars:
-    workdir: /opt/squirrel/www
+    workdir: /opt/iview-admin/www
 
   tasks:
-    - name: ensure squirrel webui directory
+    - name: ensure iview-admin webui directory
       file: path={{ workdir }} state=directory mode=755
 
     - name: sync dist file
