@@ -1,84 +1,70 @@
-import axios from '@/libs/api.request'
+import fetch from '@/libs/fetch'
 
-export const login = ({ userName, password }) => {
-  const data = {
-    userName,
-    password
-  }
-  return axios.request({
-    url: 'login',
-    data,
-    method: 'post'
-  })
-}
-
-export const getUserInfo = (token) => {
-  return axios.request({
-    url: 'get_info',
-    params: {
-      token
-    },
-    method: 'get'
-  })
-}
-
-export const logout = (token) => {
-  return axios.request({
-    url: 'logout',
-    method: 'post'
-  })
-}
-
-export const getUnreadCount = () => {
-  return axios.request({
-    url: 'message/count',
-    method: 'get'
-  })
-}
-
-export const getMessage = () => {
-  return axios.request({
-    url: 'message/init',
-    method: 'get'
-  })
-}
-
-export const getContentByMsgId = msg_id => {
-  return axios.request({
-    url: 'message/content',
+export function getUsers(formData: object) {
+  return fetch({
+    url: '/user/',
     method: 'get',
-    params: {
-      msg_id
-    }
+    params: formData
   })
 }
 
-export const hasRead = msg_id => {
-  return axios.request({
-    url: 'message/has_read',
+export function login(formData: object) {
+  return fetch({
+    url: '/user/login',
     method: 'post',
-    data: {
-      msg_id
-    }
+    data: formData
   })
 }
 
-export const removeReaded = msg_id => {
-  return axios.request({
-    url: 'message/remove_readed',
-    method: 'post',
-    data: {
-      msg_id
-    }
+export function changePassword(formData: object) {
+  return fetch({
+    url: '/user/password',
+    method: 'put',
+    data: formData
   })
 }
 
-export const restoreTrash = msg_id => {
-  return axios.request({
-    url: 'message/restore',
+export function register(formData: object) {
+  return fetch({
+    url: '/user/register',
     method: 'post',
-    data: {
-      msg_id
-    }
+    data: formData
+  })
+}
+
+export function getGroups() {
+  return fetch({
+    url: `/group/`,
+    method: 'get'
+  })
+}
+
+export function getUserGroup(userid: string) {
+  return fetch({
+    url: `/usergroup/${userid}`,
+    method: 'get'
+  })
+}
+
+export function updateUserGroup(userid: string, formData: object) {
+  return fetch({
+    url: `/usergroup/${userid}`,
+    method: 'put',
+    data: formData
+  })
+}
+
+export function addUserToGroup(userid: string, group: string) {
+  return fetch({
+    url: `/usergroup/${userid}`,
+    method: 'post',
+    data: { group }
+  })
+}
+
+export function delUserFromGroup(userid: string, group: string) {
+  return fetch({
+    url: `/usergroup/${userid}/${group}`,
+    method: 'delete'
   })
 }
