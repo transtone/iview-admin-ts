@@ -1,19 +1,9 @@
 // cookie保存的天数
 import config from '@/config'
 import { forEach, hasOneOf, objEqual } from '@/libs/tools'
-const { title, cookieExpires, useI18n } = config
+const { title } = config
 
 export const TOKEN_KEY = 'token'
-
-export const setToken = token => {
-  console.log(token)
-}
-
-export const getToken = () => {
-  const token = 'super_admin'
-  if (token) return token
-  else return false
-}
 
 export const hasChild = item => {
   return item.children && item.children.length !== 0
@@ -169,18 +159,17 @@ const hasAccess = (access, route) => {
  * @description 用户是否可跳转到该页
  */
 export const canTurnTo = (name, access, routes) => {
-  // const routePermissionJudge = list => {
-  //   return list.some(item => {
-  //     if (item.children && item.children.length) {
-  //       return routePermissionJudge(item.children)
-  //     } else if (item.name === name) {
-  //       return hasAccess(access, item)
-  //     }
-  //   })
-  // }
+  const routePermissionJudge = list => {
+    return list.some(item => {
+      if (item.children && item.children.length) {
+        return routePermissionJudge(item.children)
+      } else if (item.name === name) {
+        return hasAccess(access, item)
+      }
+    })
+  }
 
-  // return routePermissionJudge(routes)
-  return true
+  return routePermissionJudge(routes)
 }
 
 /**

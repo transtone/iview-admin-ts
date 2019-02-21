@@ -8,9 +8,7 @@ import {
   getNextRoute,
   routeHasExist,
   routeEqual,
-  getRouteTitleHandled,
-  localSave,
-  localRead
+  getRouteTitleHandled
 } from '@/libs/util'
 import beforeClose from '@/router/before-close'
 import router from '@/router'
@@ -30,7 +28,6 @@ const state = {
   breadCrumbList: [],
   tagNavList: [],
   homeRoute: {},
-  local: localRead('local'),
   errorList: [],
   hasReadErrorPage: false
 }
@@ -38,6 +35,7 @@ const state = {
 const getters = {
   menuList: (state, getters, rootState) =>
     getMenuByRouter(routers, rootState.user.access),
+
   errorCount: state => state.errorList.length
 }
 
@@ -45,9 +43,11 @@ const mutations = {
   setBreadCrumb(state, route) {
     state.breadCrumbList = getBreadCrumbList(route, state.homeRoute)
   },
+
   setHomeRoute(state, routes) {
     state.homeRoute = getHomeRoute(routes, homeName)
   },
+
   setTagNavList(state, list) {
     let tagList = []
     if (list) {
@@ -62,6 +62,7 @@ const mutations = {
     state.tagNavList = tagList
     setTagNavListInLocalstorage([...tagList])
   },
+
   closeTag(state, route) {
     let tag = state.tagNavList.filter(item => routeEqual(item, route))
     route = tag[0] ? tag[0] : null
@@ -80,6 +81,7 @@ const mutations = {
       closePage(state, route)
     }
   },
+
   addTag(state, { route, type = 'unshift' }) {
     let router = getRouteTitleHandled(route)
     if (!routeHasExist(state.tagNavList, router)) {
@@ -94,13 +96,11 @@ const mutations = {
       setTagNavListInLocalstorage([...state.tagNavList])
     }
   },
-  setLocal(state, lang) {
-    localSave('local', lang)
-    state.local = lang
-  },
+
   addError(state, error) {
     state.errorList.push(error)
   },
+
   setHasReadErrorLoggerStatus(state, status = true) {
     state.hasReadErrorPage = status
   }
