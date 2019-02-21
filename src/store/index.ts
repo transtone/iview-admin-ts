@@ -3,21 +3,21 @@ import Vuex from 'vuex'
 import VuexPersistence from 'vuex-persist'
 const vuexLocal = new VuexPersistence({
   key: 'iview',
-  modules: ['login'],
+  modules: ['user'],
   storage: window.localStorage
 })
 
 const getters: any = require('./getters')
-import login from './modules/login'
-// import sys from "./modules/sys";
+import user from './modules/user'
+import app from './modules/app'
 
 Vue.use(Vuex)
 
 const store = new Vuex.Store({
   getters,
   modules: {
-    login
-    // sys
+    user,
+    app
   },
   plugins: [vuexLocal.plugin]
 })
