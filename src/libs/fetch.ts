@@ -1,13 +1,11 @@
 import Qs from 'qs'
 import axios from 'axios'
 import store from '@/store'
-import { cleartoken } from '@/utils'
+// import { cleartoken } from '@/utils'
 
-import config from '@/config'
-const baseUrl =
-  process.env.NODE_ENV === 'development'
-    ? config.baseUrl.dev
-    : config.baseUrl.pro
+import cfg from '@/config'
+const baseURL =
+  process.env.NODE_ENV === 'development' ? cfg.baseUrl.dev : cfg.baseUrl.pro
 
 // 创建axios实例
 const service = axios.create({
@@ -50,12 +48,8 @@ service.interceptors.request.use(
 
 service.interceptors.response.use(
   (response: any) => {
-    if (
-      response.data.Code === 502002 ||
-      response.data.Code === 506201 ||
-      response.data.Code === 500301
-    ) {
-      cleartoken()
+    if (response.data.Code === 502002) {
+      // cleartoken()
     }
     return response
   },

@@ -122,6 +122,8 @@ export default {
       if (type.includes('all')) {
         // 关闭所有，除了home
         let res = this.list.filter(item => item.name === this.$config.homeName)
+        console.log('列表：', this.list)
+        console.log('res：', res)
         this.$emit('on-close', res, 'all')
       } else if (type.includes('others')) {
         // 关闭除当前页和home页的其他页

@@ -8,7 +8,7 @@ const commitHash = child.execSync('git rev-parse HEAD').toString()
 module.exports = {
   pages: {
     index: {
-      entry: 'src/main.js',
+      entry: 'src/main.ts',
       template:
         process.env.NODE_ENV === 'production'
           ? 'public/index.html'

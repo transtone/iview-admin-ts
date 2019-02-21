@@ -10,8 +10,7 @@ export const setToken = token => {
 }
 
 export const getToken = () => {
-  // const token = Cookies.get(TOKEN_KEY)
-  const token = ''
+  const token = 'super_admin'
   if (token) return token
   else return false
 }
@@ -101,14 +100,7 @@ export const getRouteTitleHandled = route => {
 export const showTitle = (item, vm) => {
   let { title, __titleIsFunction__ } = item.meta
   if (!title) return
-  if (useI18n) {
-    if (title.includes('{{') && title.includes('}}') && useI18n)
-      title = title.replace(/({{[\s\S]+?}})/, (m, str) =>
-        str.replace(/{{([\s\S]*)}}/, (m, _) => vm.$t(_.trim()))
-      )
-    else if (__titleIsFunction__) title = item.meta.title
-    else title = vm.$t(item.name)
-  } else title = (item.meta && item.meta.title) || item.name
+  title = (item.meta && item.meta.title) || item.name
   return title
 }
 
@@ -177,17 +169,18 @@ const hasAccess = (access, route) => {
  * @description 用户是否可跳转到该页
  */
 export const canTurnTo = (name, access, routes) => {
-  const routePermissionJudge = list => {
-    return list.some(item => {
-      if (item.children && item.children.length) {
-        return routePermissionJudge(item.children)
-      } else if (item.name === name) {
-        return hasAccess(access, item)
-      }
-    })
-  }
+  // const routePermissionJudge = list => {
+  //   return list.some(item => {
+  //     if (item.children && item.children.length) {
+  //       return routePermissionJudge(item.children)
+  //     } else if (item.name === name) {
+  //       return hasAccess(access, item)
+  //     }
+  //   })
+  // }
 
-  return routePermissionJudge(routes)
+  // return routePermissionJudge(routes)
+  return true
 }
 
 /**

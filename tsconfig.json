@@ -5,6 +5,7 @@
     "module": "esnext",
     // "strict": true,
     "allowJs": true, // 允许编译javascript文件
+    "outDir": "generated",
     "jsx": "preserve",
     "moduleResolution": "node",
     "experimentalDecorators": true,
