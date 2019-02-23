@@ -195,6 +195,7 @@ export const getNextRoute = (list, route) => {
   if (list.length === 2) {
     res = getHomeRoute(list)
   } else {
+    console.log(list, route)
     const index = list.findIndex(item => routeEqual(item, route))
     if (index === list.length - 1) res = list[list.length - 2]
     else res = list[index + 1]
