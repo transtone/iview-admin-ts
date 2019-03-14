@@ -158,7 +158,7 @@ export default {
       this.$emit('on-close', res, undefined, route)
     },
     handleClick(item) {
-      this.$emit('input', item)
+      this.$emit('on-click', item)
     },
     showTitleInside(item) {
       return showTitle(item, this)

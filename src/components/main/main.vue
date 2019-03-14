@@ -41,7 +41,7 @@
           <div class="tag-nav-wrapper">
             <tags-nav
               :value="$route"
-              @input="handleClick"
+              @on-click="handleClick"
               :list="tagNavList"
               @on-close="handleCloseTag"
             />
