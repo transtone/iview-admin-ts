@@ -1,34 +1,29 @@
 <template>
   <div class="header-bar">
-    <sider-trigger :collapsed="collapsed" icon="md-menu" @on-change="handleCollpasedChange"></sider-trigger>
-    <custom-bread-crumb show-icon style="margin-left: 30px;" :list="breadCrumbList"></custom-bread-crumb>
+    <div class="logo-con">
+      <img v-show="!collapsed" :src="maxLogo" key="max-logo">
+      <img v-show="collapsed" :src="minLogo" key="min-logo">
+    </div>
     <div class="custom-content-con">
       <slot></slot>
     </div>
   </div>
 </template>
 <script>
-import siderTrigger from './sider-trigger'
-import customBreadCrumb from './custom-bread-crumb'
+import minLogo from '@/assets/images/logo-min.jpg'
+import maxLogo from '@/assets/images/logo.jpg'
 import './header-bar.less'
 export default {
   name: 'HeaderBar',
-  components: {
-    siderTrigger,
-    customBreadCrumb
-  },
   props: {
     collapsed: Boolean
   },
-  computed: {
-    breadCrumbList () {
-      return this.$store.state.app.breadCrumbList
+  data() {
+    return {
+      minLogo,
+      maxLogo
     }
   },
-  methods: {
-    handleCollpasedChange (state) {
-      this.$emit('on-coll-change', state)
-    }
-  }
+  methods: {}
 }
 </script>

@@ -1,9 +1,7 @@
 <template>
   <div>
     <Row>
-      <Card shadow>
-        <example style="height: 310px;"/>
-      </Card>
+      <Card shadow>这是首页的内容。</Card>
     </Row>
   </div>
 </template>

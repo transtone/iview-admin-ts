@@ -1,5 +1,6 @@
 <template>
   <div class="tags-nav">
+    <sider-trigger :collapsed="collapsed" icon="md-menu" @on-change="handleCollpasedChange"></sider-trigger>
     <div class="close-con">
       <Dropdown transfer @on-click="handleTagsOption" style="margin-top:7px;">
         <Button size="small" type="text">
@@ -57,10 +58,15 @@
 
 <script>
 import { showTitle, routeEqual } from '@/libs/util'
+import siderTrigger from './sider-trigger'
 import beforeClose from '@/router/before-close'
 export default {
   name: 'TagsNav',
+  components: {
+    siderTrigger
+  },
   props: {
+    collapsed: Boolean,
     value: Object,
     list: {
       type: Array,
@@ -90,6 +96,9 @@ export default {
     }
   },
   methods: {
+    handleCollpasedChange(state) {
+      this.$emit('on-coll-change', state)
+    },
     handlescroll(e) {
       let type = e.type
       let delta = 0

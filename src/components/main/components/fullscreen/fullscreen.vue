@@ -10,7 +10,7 @@
 export default {
   name: 'Fullscreen',
   computed: {
-    showFullScreenBtn () {
+    showFullScreenBtn() {
       return window.navigator.userAgent.indexOf('MSIE') < 0
     }
   },
@@ -21,7 +21,7 @@ export default {
     }
   },
   methods: {
-    handleFullscreen () {
+    handleFullscreen() {
       let main = document.body
       if (this.value) {
         if (document.exitFullscreen) {
@@ -45,12 +45,18 @@ export default {
         }
       }
     },
-    handleChange () {
+    handleChange() {
       this.handleFullscreen()
     }
   },
-  mounted () {
-    let isFullscreen = document.fullscreenElement || document.mozFullScreenElement || document.webkitFullscreenElement || document.fullScreen || document.mozFullScreen || document.webkitIsFullScreen
+  mounted() {
+    let isFullscreen =
+      document.fullscreenElement ||
+      document.mozFullScreenElement ||
+      document.webkitFullscreenElement ||
+      document.fullScreen ||
+      document.mozFullScreen ||
+      document.webkitIsFullScreen
     isFullscreen = !!isFullscreen
     document.addEventListener('fullscreenchange', () => {
       this.$emit('input', !this.value)
@@ -74,10 +80,10 @@ export default {
 </script>
 
 <style lang="less">
-.full-screen-btn-con .ivu-tooltip-rel{
-  height: 64px;
-  line-height: 56px;
-  i{
+.full-screen-btn-con .ivu-tooltip-rel {
+  height: 50px;
+  line-height: 50px;
+  i {
     cursor: pointer;
   }
 }
