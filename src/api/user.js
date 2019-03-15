@@ -43,42 +43,42 @@ export const getMessage = () => {
   })
 }
 
-export const getContentByMsgId = msg_id => {
+export const getContentByMsgId = msgId => {
   return axios.request({
     url: 'message/content',
     method: 'get',
     params: {
-      msg_id
+      msg_id: msgId
     }
   })
 }
 
-export const hasRead = msg_id => {
+export const hasRead = msgId => {
   return axios.request({
     url: 'message/has_read',
     method: 'post',
     data: {
-      msg_id
+      msg_id: msgId
     }
   })
 }
 
-export const removeReaded = msg_id => {
+export const removeReaded = msgId => {
   return axios.request({
     url: 'message/remove_readed',
     method: 'post',
     data: {
-      msg_id
+      msg_id: msgId
     }
   })
 }
 
-export const restoreTrash = msg_id => {
+export const restoreTrash = msgId => {
   return axios.request({
     url: 'message/restore',
     method: 'post',
     data: {
-      msg_id
+      msg_id: msgId
     }
   })
 }

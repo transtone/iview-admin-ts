@@ -100,7 +100,7 @@ export default {
       this.$emit('on-coll-change', state)
     },
     handlescroll(e) {
-      let type = e.type
+      const type = e.type
       let delta = 0
       if (type === 'DOMMouseScroll' || type === 'mousewheel') {
         delta = e.wheelDelta ? e.wheelDelta : -(e.detail || 0) * 40
@@ -130,13 +130,15 @@ export default {
     handleTagsOption(type) {
       if (type.includes('all')) {
         // 关闭所有，除了home
-        let res = this.list.filter(item => item.name === this.$config.homeName)
+        const res = this.list.filter(
+          item => item.name === this.$config.homeName
+        )
         console.log('列表：', this.list)
         console.log('res：', res)
         this.$emit('on-close', res, 'all')
       } else if (type.includes('others')) {
         // 关闭除当前页和home页的其他页
-        let res = this.list.filter(
+        const res = this.list.filter(
           item =>
             routeEqual(this.currentRouteObj, item) ||
             item.name === this.$config.homeName
@@ -163,7 +165,7 @@ export default {
       }
     },
     close(route) {
-      let res = this.list.filter(item => !routeEqual(route, item))
+      const res = this.list.filter(item => !routeEqual(route, item))
       this.$emit('on-close', res, undefined, route)
     },
     handleClick(item) {
@@ -205,7 +207,7 @@ export default {
         this.refsTag = this.$refs.tagsPageOpened
         this.refsTag.forEach((item, index) => {
           if (routeEqual(route, item.$attrs['data-route-item'])) {
-            let tag = this.refsTag[index].$el
+            const tag = this.refsTag[index].$el
             this.moveToView(tag)
           }
         })

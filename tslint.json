@@ -23,6 +23,7 @@
     "object-literal-sort-keys": [false],
     "no-unused-variable": false,
     "no-console": [false],
+    "no-shadowed-variable": false,
     "await-promise": false,
     "deprecation": false,
     "no-unnecessary-qualifier": false,
@@ -33,6 +34,9 @@
   "jsRules": {
     "object-literal-sort-keys": false,
     "curly": false,
-    "no-unused-expression": false
+    "no-unused-expression": false,
+    "no-shadowed-variable": false,
+    "no-empty": false,
+    "no-console": false
   }
 }
