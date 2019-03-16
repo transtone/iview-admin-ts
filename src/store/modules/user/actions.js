@@ -36,7 +36,7 @@ export function getUserInfo({ state, commit }) {
   return getUserInfoApi(state.token)
     .then(res => {
       const data = res.data
-      commit('setAvator', data.avator)
+      commit('setAvatar', data.avatar)
       commit('setUserName', data.name)
       commit('setUserId', data.user_id)
       commit('setAccess', data.access)
