@@ -2,7 +2,7 @@
   <Layout style="height: 100%" class="main">
     <Header class="header-con">
       <header-bar :collapsed="collapsed">
-        <user :message-unread-count="unreadCount" :user-avator="userAvator"/>
+        <user :message-unread-count="unreadCount" :user-avatar="userAvatar"/>
         <fullscreen v-model="isFullscreen" style="margin-right: 10px;"/>
       </header-bar>
     </Header>
@@ -87,8 +87,8 @@ export default {
     tagRouter() {
       return this.$store.state.app.tagRouter
     },
-    userAvator() {
-      return this.$store.state.user.avatorImgPath
+    userAvatar() {
+      return this.$store.state.user.avatarImgPath
     },
     cacheList() {
       return [

@@ -3,7 +3,7 @@ import * as actions from './actions'
 const state = {
   userName: '',
   userId: '',
-  avatorImgPath: '',
+  avatarImgPath: '',
   token: '',
   access: '',
   hasGetInfo: false,
@@ -15,8 +15,8 @@ const state = {
 }
 
 const mutations = {
-  setAvator(state, avatorPath) {
-    state.avatorImgPath = avatorPath
+  setAvatar(state, avatarPath) {
+    state.avatarImgPath = avatarPath
   },
 
   setUserId(state, id) {
